@@ -40,6 +40,11 @@ void setup() {
 }
 
 void loop() {
+    static char buffer[17];
+    cowpi_timer_t volatile *timer = (cowpi_timer_t *) (0x40054000);
+    uint32_t time = timer->raw_lower_word;
+    sprintf(buffer, "%9lu.%06lu", time / 1000000, time % 1000000);
+    display_string(7, buffer);
     refresh_display();
     manage_controls();
     manage_sensor();

@@ -62,6 +62,10 @@ typedef struct {
     - DECLARE THEM HERE AS AN extern volatile VARIABLE
       example:   extern unsigned long volatile foo;
 */
+extern bool volatile requested_ping;
+extern volatile uint64_t distance;
+extern volatile uint64_t speed;
+extern volatile bool object_detected;
 
 
 
