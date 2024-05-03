@@ -26,10 +26,27 @@
 
 const unsigned int on_period = 7000;          // a made-up number, probably not the value you want to use
 volatile unsigned int total_period = 50000;
+volatile bool sound_alarm;
+volatile bool on = false;
+volatile unsigned int alarm_interrupt_ct = 0;
 
+void handle_alarm_timer_interrupt(void){
+    alarm_interrupt_ct++;
+    if(alarm_interrupt_ct >= total_period){
+        alarm_interrupt_ct = 0;
+    }
+    if (on) {
+        digitalWrite(BUZZER, HIGH);
+        on = false;
+    } else {
+        digitalWrite(BUZZER, LOW);
+        on = true;
+    }
+    reset_timer(ALARM_TIMER);
+}
 
 void initialize_alarm(void) {
-  
+    register_timer_ISR(ALARM_TIMER, 500, handle_alarm_timer_interrupt);
 }
 
 void manage_alarm(void) {

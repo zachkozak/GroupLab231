@@ -23,7 +23,7 @@
 #include "shared_variables.h"
 #include "outputs.h"
 #include "interrupt_support.h"
-#define SENSOR_TIMER (1)
+
 volatile bool object_detected;
 volatile uint64_t distance;
 volatile uint64_t speed;
