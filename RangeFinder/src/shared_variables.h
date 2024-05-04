@@ -65,10 +65,19 @@ typedef struct {
 #define SENSOR_TIMER (1)
 #define ALARM_TIMER (2)
 extern bool volatile requested_ping;
-extern volatile uint64_t distance;
-extern volatile uint64_t speed;
+extern volatile int64_t threshold;
+extern volatile int64_t distance;
 extern volatile bool object_detected;
-extern volatile bool sound_alarm;
+extern volatile bool alarm_requested;
+extern volatile bool light_LED;
+extern volatile unsigned int alarm_interrupt_ct;
+typedef enum {
+    continuous_tone,
+    normal,
+    single_pulse,
+    thresh_adjust
+} status_t;
+extern volatile status_t status;
 
 
 
