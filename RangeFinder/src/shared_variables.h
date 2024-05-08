@@ -2,8 +2,7 @@
  *
  * @file shared_variables.h
  *
- * @author (STUDENTS -- TYPE YOUR NAMES HERE)
- * @author (STUDENTS -- TYPE YOUR NAMES HERE)
+ * @author Zach Kozak Jack Williames
  *
  * @brief Types and variables that need to be shared among the .c files.
  *

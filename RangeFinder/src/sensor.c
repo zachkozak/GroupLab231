@@ -2,8 +2,7 @@
  *
  * @file sensor.c
  *
- * @author (STUDENTS -- TYPE YOUR NAMES HERE)
- * @author (STUDENTS -- TYPE YOUR NAMES HERE)
+ * @author Zach Kozak Jack Williames
  *
  * @brief Code to manage the distance sensor.
  *
@@ -46,7 +45,7 @@ volatile int64_t current_time;
 volatile uint32_t speedtimer;
 
 void handle_sensor_timer_interrupt(void){
-    // TODO: Implement the sensor timer interrupt handler
+    
     if(sensorState == STATE_INITIAL_START){
         sensorState = STATE_POWERING_UP;
         reset_timer(SENSOR_TIMER);
@@ -147,7 +146,7 @@ void manage_sensor(void) {
             }
         }
     } else {
-        display_string(0,"");
+        display_string(0,"No Object Detect");
         display_string(1,"");
         display_string(3,"");
     }

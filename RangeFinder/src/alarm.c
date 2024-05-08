@@ -2,8 +2,7 @@
  *
  * @file alarm.c
  *
- * @author (STUDENTS -- TYPE YOUR NAMES HERE)
- * @author (STUDENTS -- TYPE YOUR NAMES HERE)
+ * @author Zach Kozak Jack Williames
  *
  * @brief Code to manage the piezodisc and LEDs.
  *
@@ -46,7 +45,7 @@ void set_total_period(void){
 
 void handle_alarm_timer_interrupt(void){
     static bool on;
-    if(sound_alarm && (alarm_interrupt_ct <= on_period)){
+    if(sound_alarm && (alarm_interrupt_ct <= on_period) && (distance < threshold)){
         if (on) {
             digitalWrite(BUZZER, HIGH);
             on = false;
@@ -98,4 +97,5 @@ void manage_alarm(void) {
     } else if (status == thresh_adjust){
         sound_alarm = false;
     }
+
 }

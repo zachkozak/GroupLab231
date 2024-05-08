@@ -2,8 +2,7 @@
  *
  * @file user_controls.c
  *
- * @author (STUDENTS -- TYPE YOUR NAMES HERE)
- * @author (STUDENTS -- TYPE YOUR NAMES HERE)
+ * @author Zach Kozak Jack Williames
  *
  * @brief Code to get inputs from the user.
  *
@@ -50,7 +49,6 @@ int get_working_key(char key_face) {
     }
 }
 
-//TODO: Debounce the inputs
 
 void manage_controls(void) {
     bool left_switch = cowpi_debounce_byte(cowpi_left_switch_is_in_left_position(), LEFT_SWITCH_LEFT);
